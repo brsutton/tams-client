@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 class UserList extends Component{
 createUserListItems(){
 return this.props.users.map((user)=>{
-return <li key={user.id}>{user.name}</li>
+return <li key={user.id}>{user.firstName}</li>
 })
 }
 render(){
