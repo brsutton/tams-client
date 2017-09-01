@@ -13,7 +13,7 @@ const App = ()=>(
                 <hr/>
                 {/*Call your components here*/}
                 <UserList/>
-            
+                <RegistrationForm/>
                 <hr/>
             </div>
         );
