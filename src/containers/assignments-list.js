@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-class UserList extends Component{
+class AssignmentList extends Component{
 createUserListItems(){
 return this.props.assignments.map((assignment)=>{
-return <li
-key={user.id}
-onClick={()=>this.props.SelectedUser(user)}>
-{user.first} - {user.last}</li>
+return <li key={assignment.id}>
+{assignment.name}</li>
 })
 }
 render(){
@@ -20,11 +18,8 @@ return(
 }
 function mapStateToProps(state){
 return{
-users:state.users
+assignments:state.assignments
 }
 }
-function matchDispatchToProps(dispatch){
-return bindActionCreators(
-{SelectedUser:SelectedUser},dispatch
-)
-}
+
+export default connect(mapStateToProps)(AssignmentList);
