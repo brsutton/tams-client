@@ -7,14 +7,16 @@ import AddAssignment from './addAssignment'
 import AssignmentList from '../containers/assignments-list';
 import UserList from '../containers/dummy-user-list';
 import RegistrationForm from '../containers/registration-form';
+import DeleteAssignment from '../components/delete_assignment';
 
 const App = ()=>(
             <div>
                 <h1>TAMS Client</h1>
                 <hr/>
                 {/*Call your components here*/}
+                <DeleteAssignment/>
                 <AssignmentList/>
-                <UserList/>
+                {/*<UserList/>*/}
                 <hr/>
             </div>
         );
