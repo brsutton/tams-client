@@ -1,7 +1,7 @@
 /*
 Create the store here and provide it to the application
 */
-//test
+//test stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
