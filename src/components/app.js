@@ -14,14 +14,11 @@ const App = ()=>(
                 <h1>TAMS Client</h1>
                 <hr/>
                 {/*Call your components here*/}
-<<<<<<< HEAD
                 {/*<UserList/>*/}
                 <RegistrationForm/>
-=======
-                <DeleteAssignment/>
-                <AssignmentList/>
-                {/*<UserList/>*/}
->>>>>>> 688c7d560651ec9179d0b680a49cf3e7a984cee1
+                {/* <DeleteAssignment/>
+                <AssignmentList/> */}
+
                 <hr/>
             </div>
         );
