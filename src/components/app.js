@@ -12,7 +12,7 @@ const App = ()=>(
                 <h1>TAMS Client</h1>
                 <hr/>
                 {/*Call your components here*/}
-                <UserList/>
+                {/*<UserList/>*/}
                 <RegistrationForm/>
                 <hr/>
             </div>

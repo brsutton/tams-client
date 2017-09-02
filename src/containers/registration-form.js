@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SelectedUser } from '../actions/index';
-import $ from 'jquery';
+import { RegisterUser } from '../actions/index';
+import BatchComponent from '../components/batchComponent';
 
 class RegistrationForm extends Component{
 
@@ -12,18 +12,13 @@ class RegistrationForm extends Component{
             lastName: this.lastName.value,
             userName: this.userName.value,
             contact: this.contact.value,
+            password: this.password.value,
             email: this.email.value,
-            role: this.role.value,
-            batch: this.batch.value
+            roleId: this.role.value,
+            batchId: this.batch.value
         }
 
-        console.log(this.firstName.value,
-            this.lastName.value  +" " +
-            this.userName.value +" " +
-            this.contact.value +" " +
-             this.email.value +" " +
-             this.role.value +" " +
-            this.batch.value)
+        this.props.RegisterUser(user);
     }
 
     render(){
@@ -50,19 +45,24 @@ class RegistrationForm extends Component{
                                 <td><input type="text" ref={(value) => { this.contact = value; }} minLength="10" maxLength="10" placeholder="Contact" /></td>
                             </tr>
                             <tr>
+                                <td><input type="text" ref={(value) => { this.password = value; }} placeholder="Password" /></td>
+                            </tr>
+                            <tr>
                                 <td><input type="email" ref={(value) => { this.email = value; }} placeholder="Email" /></td>
                             </tr>
                             <tr>
                                 <td>
                                     <select ref={(value) => { this.role = value; }}>
-                                        <option value="role">Role</option>
+                                        <option value="3">Role</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <select ref={(value) => { this.batch = value; }}>
-                                        <option value="batch">Batch</option>
+                                        {this.props.batches.map(function(batch , index){
+                                            return <BatchComponent batch={batch} index={index} />
+                                        })}
                                     </select>
                                 </td>
                             </tr>
@@ -75,4 +75,17 @@ class RegistrationForm extends Component{
     }
 }
 
-export default RegistrationForm;
+function mapStateToProps(state){
+    return{
+        userDetails:state.user,
+        batches:state.batches
+    }
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {RegisterUser:RegisterUser},dispatch
+        )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(RegistrationForm);
